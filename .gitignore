@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+solicitor/.env
+solicitor/__pycache__/
+*.pyc
+data/proposed_changes.yaml
+.DS_Store

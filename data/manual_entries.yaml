@@ -1,0 +1,17 @@
+# Manual entries — gigs not found in email
+# Same schema as master_gigs.yaml
+# The Solicitor tool reads this file and merges it with email-parsed data.
+# Email data wins on date/year conflicts.
+
+- artist: "The National"
+  date: 2014-09-20
+  venue: "Alexandra Palace"
+  city: "London"
+  type: "gig"
+  setlist_url: null
+  total_songs: null
+  top_songs: []
+  image_url: null
+  streaming:
+    spotify: null
+    apple: null
