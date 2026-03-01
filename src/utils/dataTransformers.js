@@ -14,7 +14,7 @@ export function filterGigs(gigs, query) {
   const q = query.toLowerCase()
   return gigs.filter(
     (g) =>
-      g.artist.toLowerCase().includes(q) ||
+      g.headliners.some((a) => a.toLowerCase().includes(q)) ||
       g.venue.toLowerCase().includes(q) ||
       g.city.toLowerCase().includes(q)
   )
@@ -22,7 +22,7 @@ export function filterGigs(gigs, query) {
 
 export function formatDate(dateStr) {
   if (!dateStr) return ''
-  const d = new Date(dateStr + 'T00:00:00')
+  const d = dateStr instanceof Date ? dateStr : new Date(dateStr + 'T00:00:00')
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 

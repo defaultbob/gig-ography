@@ -4,10 +4,10 @@ import { sortGigsByDate } from '@/utils/dataTransformers'
 function normalizeGig(gig) {
   return {
     ...gig,
-    top_songs: gig.top_songs ?? [],
-    festival_artists: gig.festival_artists ?? [],
+    headliners: gig.headliners ?? [],
+    support: gig.support ?? [],
+    lineup: gig.lineup ?? [],
     artists_seen: gig.artists_seen ?? [],
-    streaming: gig.streaming ?? { spotify: null, apple: null },
   }
 }
 

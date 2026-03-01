@@ -1,0 +1,277 @@
+# Canonical concert archive.
+#
+# Schema:
+#
+# - headliners: [string]
+#   support: [string] (optional)
+#   date: YYYY-MM-DD
+#   end_date: YYYY-MM-DD (optional, for multi-day festivals)
+#   venue: string
+#   city: string
+#   image_url: string (optional)
+#   lineup: [string] (optional, for festivals)
+#   artists_seen: [string] (optional, for festivals)
+#   event_name: string (optional)
+#
+- headliners:
+  - Mr Scruff
+  date: 2010-02-20
+  venue: KOKO
+  city: London
+- headliners:
+  - Rage Against the Machine
+  date: 2010-06-06
+  venue: Finsbury Park
+  city: London
+  event_name: "Rage Against the Machine Free Xmas #1 Gig"
+- headliners:
+  - Limp Bizkit
+  date: 2024-08-19
+  venue: Toyota Pavilion at Concord
+  city: Concord
+  event_name: "LoserVille Tour"
+- headliners:
+  - Jason Bonham's Led Zeppelin Evening
+  date: 2025-08-16
+  venue: Blue Note Summer Sessions
+  city: Napa
+- headliners:
+  - Judas Priest
+  - Alice Cooper
+  support:
+  - Corrosion of Conformity
+  date: 2025-10-14
+  venue: Shoreline Amphitheatre
+  city: Mountain View
+- headliners:
+  - The Killers
+  support:
+  - Bloc Party
+  - The Futureheads
+  - Kaiser Chiefs
+  date: 2005-01-23
+  venue: Rock City
+  city: Nottingham
+  event_name: "NME Awards Tour"
+- headliners:
+  - Mr. Scruff
+  date: 2005-10-26
+  venue: Rock City
+  city: Nottingham
+- headliners:
+  - Flight of the Conchords
+  support:
+  - John Hodgman
+  - Demetri Martin
+  - Arj Barker
+  date: 2016-06-28
+  venue: Shoreline Amphitheatre
+  city: Mountain View
+- headliners:
+  - Black Rebel Motorcycle Club
+  support:
+  - Humanist
+  date: 2025-10-25
+  venue: The Warfield
+  city: San Francisco
+- headliners:
+  - The Black Crowes
+  support:
+  - Whiskey Myers
+  date: 2026-08-20
+  venue: Shoreline Amphitheatre
+  city: Mountain View
+- headliners:
+  - Foo Fighters
+  - Pulp
+  - The Strokes
+  date: 2002-08-23
+  end_date: 2002-08-25
+  venue: Little John's Farm
+  city: Reading
+  image_url: https://www.efestivals.co.uk/festivals/reading/2002/poster.jpg
+  lineup:
+  - Foo Fighters
+  - The Strokes
+  - Pulp
+  - Jane's Addiction
+  - The White Stripes
+  - Muse
+  - Ash
+  - The Vines
+  - Black Rebel Motorcycle Club
+  - Sum 41
+  - The Hives
+  - Yeah Yeah Yeahs
+  - The Libertines
+  artists_seen:
+  - Black Rebel Motorcycle Club
+  - Foo Fighters
+  - Ash
+  - The Hives
+  - Muse
+  event_name: "Reading Festival 2002"
+
+- headliners:
+  - The Vines
+  date: 2002-11-02
+  venue: Shepherd's Bush Empire
+  city: London
+- headliners:
+  - Travis
+  - Manic Street Preachers
+  - Eminem
+  date: 2001-08-24
+  end_date: 2001-08-26
+  venue: Little John's Farm
+  city: Reading
+  image_url: https://www.efestivals.co.uk/festivals/reading/2001/poster.jpg
+  lineup:
+  - Travis
+  - Manic Street Preachers
+  - Eminem
+  - Green Day
+  - Marilyn Manson
+  - Papa Roach
+  - Queens of the Stone Age
+  - System of a Down
+  - The Cult
+  - Fear Factory
+  - Iggy Pop
+  - The Strokes
+  - Supergrass
+  - Feeder
+  - Dropkick Murphys
+  artists_seen:
+  - Feeder
+  - Eminem
+  - Green Day
+  - Marilyn Manson
+  - Queens of the Stone Age
+  - System of a Down
+  event_name: "Reading Festival 2001"
+
+- headliners:
+  - Linkin Park
+  - Blur
+  - Metallica
+  date: 2003-08-22
+  end_date: 2003-08-24
+  venue: Little John's Farm
+  city: Reading
+  image_url: https://www.efestivals.co.uk/festivals/reading/2003/poster.jpg
+  lineup:
+  - Linkin Park
+  - Blur
+  - Metallica
+  - Blink-182
+  - Placebo
+  - Beck
+  - Black Rebel Motorcycle Club
+  - Sum 41
+  - System of a Down
+  - AFI
+  - The Libertines
+  - The Darkness
+  - Interpol
+  artists_seen:
+  - Metallica
+  - Blink-182
+  - The Libertines
+  - The Darkness
+  - Blur
+  - System of a Down
+  event_name: "Reading Festival 2003"
+- headliners:
+  - The Zutons
+  date: 2006-07-19
+  venue: Prince of Wales
+  city: Melbourne
+- headliners:
+  - Desert Storm
+  date: 2025-02-01
+  venue: O2 Academy2 Oxford
+  city: Oxford
+- headliners:
+  - Black Sabbath
+  date: 2025-07-05
+  venue: Villa Park
+  city: Birmingham
+  image_url: https://www.prints4u.net/wp-content/uploads/2025/03/Black-Sabbath-012.jpg
+  lineup:
+  - Black Sabbath
+  - Metallica
+  - Ozzy Osbourne
+  - Slayer
+  - Pantera
+  - Gojira
+  - Alice in Chains
+  - Halestorm
+  - Lamb of God
+  - Anthrax
+  - Mastodon
+  artists_seen:
+  - Black Sabbath
+  - Ozzy Osbourne
+  - Metallica
+  - Slayer
+  - Pantera
+  - Gojira
+  event_name: "Back To The Beginning"
+- headliners:
+  - Black Rebel Motorcycle Club
+  date: 2002-12-02
+  venue: Shepherds Bush Empire
+  city: London
+- headliners:
+  - The Datsuns
+  date: 2003-07-01
+  venue: Shepherds Bush Empire
+  city: London
+- headliners:
+  - Queens of the Stone Age
+  support:
+  - Paris Jackson
+  date: 2025-11-10
+  venue: Davies Symphony Hall
+  city: San Francisco
+  event_name: "Catacombs Tour"
+- headliners:
+  - Black Label Society
+  support:
+  - Zakk Sabbath
+  date: 2026-03-14
+  venue: The Warfield
+  city: San Francisco
+- headliners:
+  - EyeHateGod
+  - Crowbar
+  date: 2026-03-29
+  venue: DNA Lounge
+  city: San Francisco
+- headliners:
+  - Wolfmother
+  date: 2026-07-08
+  venue: Great American Music Hall
+  city: San Francisco
+  event_name: "20th Anniversary Tour"
+- headliners:
+  - AC/DC
+  support:
+  - The Pretty Reckless
+  date: 2026-08-05
+  venue: Levi's Stadium
+  city: Santa Clara
+  event_name: "Power Up Tour"
+- headliners:
+  - Metallica
+  support:
+  - Pantera
+  - Suicidal Tendencies
+  - Ice Nine Kills
+  - Limp Bizkit
+  date: 2025-07-20
+  end_date: 2025-07-22
+  venue: Levi's Stadium
+  city: Santa Clara
+  event_name: "M72 Tour"

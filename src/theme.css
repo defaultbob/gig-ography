@@ -1,0 +1,24 @@
+@layer base {
+  :root {
+    --color-background: #ffffff;
+    --color-primary-text: #111827;
+    --color-card-background: #ffffff;
+    --color-accent: #B71C1C;
+    --color-secondary-accent: #FFD600;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: #121212;
+      --color-primary-text: #E0E0E0;
+      --color-card-background: #1E1E1E;
+    }
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-primary-text);
+    background-image: linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px);
+    background-size: 2px 2px;
+  }
+}

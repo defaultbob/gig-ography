@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Badge } from '@/components/ui/Badge'
-import { StreamingLinks } from '@/components/ui/StreamingLinks'
+import { FestivalArtistSelector } from '@/components/FestivalArtistSelector'
 import { formatDate } from '@/utils/dataTransformers'
 
 const PLACEHOLDER =
@@ -8,55 +8,45 @@ const PLACEHOLDER =
 
 export function GigCard({ gig }) {
   const [imgSrc, setImgSrc] = useState(gig.image_url || PLACEHOLDER)
+  const isFestival = Boolean(gig.end_date && gig.end_date !== gig.date)
+  const dateDisplay = isFestival
+    ? `${formatDate(gig.date)} – ${formatDate(gig.end_date)}`
+    : formatDate(gig.date)
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-200">
-      <div className="aspect-video bg-gray-100 overflow-hidden">
+    <div className="bg-card-background rounded-2xl shadow-sm border border-gray-700 overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-200">
+      <div className="aspect-video overflow-hidden">
         <img
           src={imgSrc}
-          alt={`${gig.artist} live`}
+          alt={`${gig.headliners.join(', ')} live`}
           className="w-full h-full object-cover"
           onError={() => setImgSrc(PLACEHOLDER)}
         />
       </div>
       <div className="p-4 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="font-bold text-gray-900 text-base leading-tight">{gig.artist}</h3>
-          <Badge type={gig.type} />
+          <div>
+            <h3 className="font-bold text-primary-text text-base leading-tight">
+              {gig.event_name || gig.headliners.join(' + ')}
+            </h3>
+            {gig.event_name && (
+              <p className="text-sm text-gray-400">{gig.headliners.join(' + ')}</p>
+            )}
+          </div>
+          <Badge isFestival={isFestival} />
         </div>
-        <p className="text-sm text-gray-500 mt-1">{formatDate(gig.date)}</p>
-        <p className="text-sm text-gray-700 mt-0.5">
+
+        {gig.support.length > 0 && (
+          <p className="text-xs text-gray-400 mt-0.5">+ {gig.support.join(', ')}</p>
+        )}
+
+        <p className="text-sm text-gray-400 mt-1">{dateDisplay}</p>
+        <p className="text-sm text-gray-300 mt-0.5">
           {gig.venue}, {gig.city}
         </p>
 
-        {gig.total_songs != null && (
-          <p className="text-xs text-gray-400 mt-2">{gig.total_songs} songs</p>
-        )}
+        <FestivalArtistSelector lineup={gig.lineup} artistsSeen={gig.artists_seen} />
 
-        {gig.top_songs.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1">
-            {gig.top_songs.slice(0, 3).map((song) => (
-              <span key={song} className="bg-gray-50 text-gray-600 text-xs px-2 py-0.5 rounded-full border border-gray-200">
-                {song}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {gig.setlist_url && (
-          <a
-            href={gig.setlist_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-blue-500 hover:text-blue-700 mt-2 inline-block"
-          >
-            View setlist →
-          </a>
-        )}
-
-        <div className="mt-auto pt-3">
-          <StreamingLinks streaming={gig.streaming} />
-        </div>
       </div>
     </div>
   )

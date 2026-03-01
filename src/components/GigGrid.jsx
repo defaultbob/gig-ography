@@ -1,5 +1,4 @@
 import { GigCard } from '@/components/GigCard'
-import { FestivalCard } from '@/components/FestivalCard'
 
 export function GigGrid({ gigs }) {
   if (!gigs.length) {
@@ -12,13 +11,9 @@ export function GigGrid({ gigs }) {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {gigs.map((gig, i) =>
-        gig.type === 'festival' ? (
-          <FestivalCard key={`${gig.artist}-${gig.date}-${i}`} gig={gig} />
-        ) : (
-          <GigCard key={`${gig.artist}-${gig.date}-${i}`} gig={gig} />
-        )
-      )}
+      {gigs.map((gig, i) => (
+        <GigCard key={`${gig.headliners.join('-')}-${gig.date}-${i}`} gig={gig} />
+      ))}
     </div>
   )
 }

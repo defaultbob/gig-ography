@@ -3,12 +3,12 @@ import { GigGrid } from '@/components/GigGrid'
 import { FilterBar } from '@/components/FilterBar'
 import { filterGigs, sortGigsByDate } from '@/utils/dataTransformers'
 
-export function ArchivePage({ gigs }) {
+export function UpcomingPage({ gigs }) {
   const [query, setQuery] = useState('')
-  const [sortDir, setSortDir] = useState('desc')
+  const [sortDir, setSortDir] = useState('asc')
 
-  const seenGigs = gigs.filter(gig => new Date(gig.date) < new Date())
-  const filtered = filterGigs(seenGigs, query)
+  const upcomingGigs = gigs.filter(gig => new Date(gig.date) > new Date())
+  const filtered = filterGigs(upcomingGigs, query)
   const sorted = sortGigsByDate(filtered, sortDir)
 
   return (
@@ -18,7 +18,7 @@ export function ArchivePage({ gigs }) {
         onQueryChange={setQuery}
         sortDir={sortDir}
         onSortDirChange={setSortDir}
-        total={seenGigs.length}
+        total={upcomingGigs.length}
         filtered={filtered.length}
       />
       <GigGrid gigs={sorted} />
