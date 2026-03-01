@@ -18,23 +18,27 @@
   date: 2010-02-20
   venue: KOKO
   city: London
+  image_url: https://ninjatune.net/images/artists/mr-scruff-main.jpg
 - headliners:
   - Rage Against the Machine
   date: 2010-06-06
   venue: Finsbury Park
   city: London
   event_name: "Rage Against the Machine Free Xmas #1 Gig"
+  image_url: https://m.media-amazon.com/images/I/71rI9k3V5SL._AC_SL1024_.jpg
 - headliners:
   - Limp Bizkit
   date: 2024-08-19
   venue: Toyota Pavilion at Concord
   city: Concord
   event_name: "LoserVille Tour"
+  image_url: https://www.thescenestar.com/images/limpbizkit_loserville.jpg
 - headliners:
   - Jason Bonham's Led Zeppelin Evening
   date: 2025-08-16
   venue: Blue Note Summer Sessions
   city: Napa
+  image_url: https://bluenotenapa.com/wp-content/uploads/2025/01/JBLZE-2025.jpg
 - headliners:
   - Judas Priest
   - Alice Cooper
@@ -43,6 +47,7 @@
   date: 2025-10-14
   venue: Shoreline Amphitheatre
   city: Mountain View
+  image_url: https://i.ebayimg.com/images/g/VlAAAOSwX8xm2G6o/s-l1600.jpg
 - headliners:
   - The Killers
   support:
@@ -53,11 +58,13 @@
   venue: Rock City
   city: Nottingham
   event_name: "NME Awards Tour"
+  image_url: https://i.pinimg.com/originals/81/7a/12/817a1268390b162f49580b067d58996b.jpg
 - headliners:
   - Mr. Scruff
   date: 2005-10-26
   venue: Rock City
   city: Nottingham
+  image_url: https://images.sk-static.com/images/media/img/col4/20100330-112932-159676.jpg
 - headliners:
   - Flight of the Conchords
   support:
@@ -67,6 +74,7 @@
   date: 2016-06-28
   venue: Shoreline Amphitheatre
   city: Mountain View
+  image_url: https://www.darkcitygallery.com/v/vspfiles/photos/FOTCDCDP-2T.jpg
 - headliners:
   - Black Rebel Motorcycle Club
   support:
@@ -74,6 +82,7 @@
   date: 2025-10-25
   venue: The Warfield
   city: San Francisco
+  image_url: https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/black-rebel-motorcycle-club-howl-20th-anniv-tour-2025-indah-yose.jpg
 - headliners:
   - The Black Crowes
   support:
@@ -81,6 +90,7 @@
   date: 2026-08-20
   venue: Shoreline Amphitheatre
   city: Mountain View
+  image_url: https://consequence.net/wp-content/uploads/2026/01/black-crowes-whiskey-myers-tour.jpg
 - headliners:
   - Foo Fighters
   - Pulp
@@ -117,6 +127,7 @@
   date: 2002-11-02
   venue: Shepherd's Bush Empire
   city: London
+  image_url: https://www.shugarecords.com/cdn/shop/products/p0024_1024x1024.jpg
 - headliners:
   - Travis
   - Manic Street Preachers
@@ -187,11 +198,13 @@
   date: 2006-07-19
   venue: Prince of Wales
   city: Melbourne
+  image_url: https://www.rarerecords.com.au/cdn/shop/products/37731_1024x1024.jpg
 - headliners:
   - Desert Storm
   date: 2025-02-01
   venue: O2 Academy2 Oxford
   city: Oxford
+  image_url: https://images.sk-static.com/images/media/img/col4/20241015-123001-998124.jpg
 - headliners:
   - Black Sabbath
   date: 2025-07-05
@@ -223,11 +236,13 @@
   date: 2002-12-02
   venue: Shepherds Bush Empire
   city: London
+  image_url: https://i.ebayimg.com/images/g/h7oAAOSwpJdfS7n~/s-l1600.jpg
 - headliners:
   - The Datsuns
   date: 2003-07-01
   venue: Shepherds Bush Empire
   city: London
+  image_url: https://m.media-amazon.com/images/I/71Y8J9Zp+RL._AC_SL1200_.jpg
 - headliners:
   - Queens of the Stone Age
   support:
@@ -236,6 +251,7 @@
   venue: Davies Symphony Hall
   city: San Francisco
   event_name: "Catacombs Tour"
+  image_url: https://samaritanpress.org/cdn/shop/files/QOTSA_SF_2025_Main_1024x1024.jpg
 - headliners:
   - Black Label Society
   support:
@@ -243,18 +259,21 @@
   date: 2026-03-14
   venue: The Warfield
   city: San Francisco
+  image_url: https://www.prints4u.net/wp-content/uploads/2025/10/BLS-2026-Tour.jpg
 - headliners:
   - EyeHateGod
   - Crowbar
   date: 2026-03-29
   venue: DNA Lounge
   city: San Francisco
+  image_url: https://consequence.net/wp-content/uploads/2026/01/crowbar-eyehategod-2026.jpg
 - headliners:
   - Wolfmother
   date: 2026-07-08
   venue: Great American Music Hall
   city: San Francisco
   event_name: "20th Anniversary Tour"
+  image_url: https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/wolfmother-2026-tour-dates-carol-smithidg.jpg
 - headliners:
   - AC/DC
   support:
@@ -263,6 +282,7 @@
   venue: Levi's Stadium
   city: Santa Clara
   event_name: "Power Up Tour"
+  image_url: https://www.prints4u.net/wp-content/uploads/2025/12/ACDC-2026-San-Francisco.jpg
 - headliners:
   - Metallica
   support:
@@ -275,3 +295,4 @@
   venue: Levi's Stadium
   city: Santa Clara
   event_name: "M72 Tour"
+  image_url: https://i.ebayimg.com/images/g/f1AAAOSw~oNm2G7R/s-l1600.jpg
