@@ -5,10 +5,11 @@ For each gig, calls the four enrichment APIs in order and fills
 only empty/null fields — never overwrites data that's already present.
 """
 
+from typing import Dict, List #
 from apis import setlist_fm, musicbrainz, spotify, apple_music
 
 
-def enrich_gigs(gigs: list[dict]) -> list[dict]:
+def enrich_gigs(gigs: List[Dict]) -> List[Dict]:
     """Return a new list of gigs with enrichment data filled in."""
     enriched = []
     total = len(gigs)
@@ -20,7 +21,7 @@ def enrich_gigs(gigs: list[dict]) -> list[dict]:
     return enriched
 
 
-def _enrich_one(gig: dict) -> dict:
+def _enrich_one(gig: Dict) -> Dict:
     gig = dict(gig)  # shallow copy
     artist = gig.get("artist", "")
     date = gig.get("date", "")
@@ -28,24 +29,24 @@ def _enrich_one(gig: dict) -> dict:
     # 1. Setlist data (skip if all fields already populated)
     if _needs("setlist_url", gig) or _needs("total_songs", gig) or _needs("top_songs", gig):
         if date:
-            try:
-                sl_data = setlist_fm.get_setlist(artist, date)
+            try: #
+                sl_data = setlist_fm.get_setlist(artist, date) #
                 if _needs("setlist_url", gig):
                     gig["setlist_url"] = sl_data.get("setlist_url")
                 if _needs("total_songs", gig):
                     gig["total_songs"] = sl_data.get("total_songs")
                 if _needs("top_songs", gig):
                     gig["top_songs"] = sl_data.get("top_songs") or []
-            except Exception as exc:
-                print(f"    [setlist.fm] Failed: {exc}")
+            except Exception as exc: #
+                print(f"    [setlist.fm] Failed: {exc}") #
 
     # 2. Artist image
     if _needs("image_url", gig):
-        try:
-            url = musicbrainz.get_artist_image(artist)
+        try: #
+            url = musicbrainz.get_artist_image(artist) #
             gig["image_url"] = url
-        except Exception as exc:
-            print(f"    [musicbrainz] Failed: {exc}")
+        except Exception as exc: #
+            print(f"    [musicbrainz] Failed: {exc}") #
 
     # 3. Spotify
     streaming = gig.setdefault("streaming", {})
@@ -65,7 +66,7 @@ def _enrich_one(gig: dict) -> dict:
     return gig
 
 
-def _needs(field: str, obj: dict) -> bool:
+def _needs(field: str, obj: Dict) -> bool:
     """Return True if the field is missing or null/empty."""
     val = obj.get(field)
     if val is None:

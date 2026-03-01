@@ -6,3 +6,5 @@ solicitor/__pycache__/
 *.pyc
 data/proposed_changes.yaml
 .DS_Store
+venv/
+solicitor/credentials.json

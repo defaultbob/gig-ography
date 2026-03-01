@@ -3,20 +3,21 @@
 Solicitor — Gig data pipeline CLI.
 
 Workflow:
-  1. Parse raw Gemini Gmail Extension .txt export
-  2. Merge with manual_entries.yaml (email wins on date conflicts)
+  1. Reads gigs from a YAML file (e.g., google_gigs.yaml)
+  2. Merge with manual_entries.yaml (input YAML wins on date conflicts)
   3. Enrich each gig via Setlist.fm, MusicBrainz, Spotify, Apple Music
   4. Write proposed_changes.yaml for manual review
 
 Usage:
   cd solicitor/
-  python solicitor.py ../gemini_export.txt
-  python solicitor.py ../gemini_export.txt --manual ../data/manual_entries.yaml
+  python solicitor.py
+  python solicitor.py --input-yaml ../data/google_gigs.yaml --manual ../data/manual_entries.yaml
 """
 
 import argparse
 import sys
 from pathlib import Path
+import yaml
 
 from dotenv import load_dotenv
 
@@ -24,17 +25,22 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).parent / ".env")
 load_dotenv(Path(__file__).parent.parent / ".env")
 
-from parser import parse_gemini_txt
+from parser import parse_plaintext_gigs
 from merger import merge_sources
 from enricher import enrich_gigs
 from output import write_proposed_changes
-
+ 
 
 def main() -> None:
     ap = argparse.ArgumentParser(
-        description="Solicitor: enrich gig data from Gemini Gmail export."
+        description="Solicitor: enrich gig data from a YAML input file."
     )
-    ap.add_argument("gemini_txt", help="Path to the Gemini Gmail Extension .txt export")
+    ap.add_argument(
+        "--input-yaml",
+        dest="input_file", # Renamed for clarity
+        default=str(Path(__file__).parent.parent / "data" / "plaintext guesses.md"), # Changed default to plaintext
+        help="Path to the input YAML file (default: ../data/google_gigs.yaml)",
+    )
     ap.add_argument(
         "--manual",
         default=str(Path(__file__).parent.parent / "data" / "manual_entries.yaml"),
@@ -54,12 +60,20 @@ def main() -> None:
 
     print("Solicitor starting…\n")
 
-    print(f"Step 1/3  Parsing {args.gemini_txt}")
-    email_gigs = parse_gemini_txt(args.gemini_txt)
-    print(f"  → Found {len(email_gigs)} gig(s) in email export.")
+    print(f"Step 1/3  Parsing {args.input_file}")
+    try:
+        with open(args.input_file, encoding="utf-8") as f:
+            content = f.read()
+        input_gigs = parse_plaintext_gigs(content)
+    except FileNotFoundError:
+        print(f"  → Input file not found: {args.input_file}. Starting with an empty list.")
+        input_gigs = []
+    print(f"  → Found {len(input_gigs)} gig(s) in {args.input_yaml}.")
 
     print(f"\nStep 2/3  Merging with {args.manual}")
-    merged = merge_sources(email_gigs, args.manual)
+    # Note: The merge_sources function expects the first argument to be the "primary" source.
+    # In the old script, this was email_gigs. Now it's the input_gigs.
+    merged = merge_sources(input_gigs, args.manual)
     print(f"  → {len(merged)} gig(s) after merge.")
 
     if args.skip_enrichment:

@@ -6,9 +6,10 @@ All other empty fields are filled from whichever source has data.
 """
 
 import yaml
+from typing import List, Dict, Tuple
 
 
-def merge_sources(email_gigs: list[dict], manual_yaml_path: str) -> list[dict]:
+def merge_sources(email_gigs: List[Dict], manual_yaml_path: str) -> List[Dict]:
     """
     Merge email-sourced gigs with manual entries.
     Returns a deduplicated list with email data winning on date conflicts.
@@ -53,7 +54,7 @@ def merge_sources(email_gigs: list[dict], manual_yaml_path: str) -> list[dict]:
     return merged
 
 
-def _make_key(gig: dict) -> tuple[str, str]:
+def _make_key(gig: Dict) -> Tuple[str, str]:
     """Normalised (artist, year) tuple used as the deduplication key."""
     artist = (gig.get("artist") or "").lower().strip()
     year = str(gig.get("date") or "")[:4]

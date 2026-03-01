@@ -12,11 +12,12 @@ gracefully so the rest of enrichment is unaffected.
 """
 
 import os
+from typing import Optional
 
-import applemusicpy
+import applemusicpy #
 
 
-def get_artist_url(artist_name: str) -> str | None:
+def get_artist_url(artist_name: str) -> Optional[str]:
     """Return the Apple Music artist URL, or None if unavailable."""
     key_id = os.environ.get("APPLE_MUSIC_KEY_ID")
     team_id = os.environ.get("APPLE_MUSIC_TEAM_ID")
@@ -32,7 +33,7 @@ def get_artist_url(artist_name: str) -> str | None:
             key_id=key_id,
             team_id=team_id,
         )
-        results = am.search(artist_name, types=["artists"], limit=1)
+        results = am.search(artist_name, types=["artists"], limit=1) #
         artists = results.get("results", {}).get("artists", {}).get("data", [])
         if artists:
             return artists[0]["attributes"]["url"]

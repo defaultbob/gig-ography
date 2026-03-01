@@ -8,6 +8,7 @@ Two-path logic:
 
 import os
 import time
+from typing import Dict, List, Optional, Union
 from collections import Counter
 
 import requests
@@ -22,7 +23,7 @@ def _headers() -> dict:
     }
 
 
-def _get(path: str, params: dict | None = None) -> dict | None:
+def _get(path: str, params: Optional[Dict] = None) -> Optional[Dict]:
     """Make a GET request; return JSON dict or None on error."""
     try:
         resp = requests.get(f"{BASE_URL}{path}", headers=_headers(), params=params, timeout=10)
@@ -42,11 +43,11 @@ def _iso_to_setlistfm(date_iso: str) -> str:
     return f"{parts[2]}-{parts[1]}-{parts[0]}"
 
 
-def _count_songs(setlist: dict) -> int:
+def _count_songs(setlist: Dict) -> int:
     return sum(len(s.get("song", [])) for s in setlist.get("sets", {}).get("set", []))
 
 
-def _extract_songs(setlist: dict, n: int = 5) -> list[str]:
+def _extract_songs(setlist: Dict, n: int = 5) -> List[str]:
     songs = []
     for s in setlist.get("sets", {}).get("set", []):
         for song in s.get("song", []):
@@ -81,8 +82,8 @@ def get_setlist(artist: str, date: str) -> dict:
 
 def _calculate_average_setlist(artist: str, year: str) -> dict:
     """Fetch all setlists for an artist in a given year and compute averages."""
-    all_songs: list[str] = []
-    song_counts: list[int] = []
+    all_songs: List[str] = []
+    song_counts: List[int] = []
     page = 1
 
     while True:

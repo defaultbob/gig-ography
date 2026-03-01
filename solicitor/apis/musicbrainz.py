@@ -10,6 +10,7 @@ This is the most reliable free approach for artist images:
 import os
 import time
 
+from typing import Optional #
 import musicbrainzngs
 import requests
 
@@ -19,17 +20,17 @@ def _setup():
     musicbrainzngs.set_useragent("gig-ography", "1.0", email)
 
 
-def get_artist_image(artist_name: str) -> str | None:
+def get_artist_image(artist_name: str) -> Optional[str]:
     """Return a direct image URL for the given artist, or None."""
     _setup()
-    try:
-        result = musicbrainzngs.search_artists(artist=artist_name, limit=1)
+    try: #
+        result = musicbrainzngs.search_artists(artist=artist_name, limit=1) #
         time.sleep(1)  # MusicBrainz rate limit: 1 req/sec for unregistered apps
         artists = result.get("artist-list", [])
         if not artists:
             return None
 
-        artist_id = artists[0]["id"]
+        artist_id = artists[0]["id"] #
         artist_data = musicbrainzngs.get_artist_by_id(artist_id, includes=["url-rels"])
         time.sleep(1)
 
@@ -45,11 +46,11 @@ def get_artist_image(artist_name: str) -> str | None:
     return None
 
 
-def _fetch_wikipedia_thumbnail(page_title: str) -> str | None:
+def _fetch_wikipedia_thumbnail(page_title: str) -> Optional[str]:
     """Fetch the thumbnail image URL from the Wikipedia page summary API."""
     url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{page_title}"
-    try:
-        resp = requests.get(url, timeout=10, headers={"User-Agent": "gig-ography/1.0"})
+    try: #
+        resp = requests.get(url, timeout=10, headers={"User-Agent": "gig-ography/1.0"}) #
         if resp.ok:
             return resp.json().get("thumbnail", {}).get("source")
     except Exception as exc:

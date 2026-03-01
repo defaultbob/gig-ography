@@ -1,0 +1,66 @@
+# auto_gigs.yaml — Email-scraped gig entries
+#
+# Source: Gmail ticket receipts (Ticketmaster, Live Nation, SeeTickets, AXS, StubHub)
+# Verified by: purchase confirmation + mobile entry instructions emails
+# Last scraped: 2026-02-28 (updated with 2006-2012 UK era)
+#
+# Verification rules applied:
+#   ✓ Must have a ticket purchase/order confirmation email
+#   ✓ Must have mobile entry instructions OR ticket delivery email (proves kept, not resold)
+#   ✗ Excluded if matched by a "You sold" / "ticket transfer" email
+#   ✗ Excluded if event date is in the future (relative to scrape date)
+#   ✗ Excluded if already in manual_entries.yaml
+#
+# Schema matches master_gigs.yaml. Extra fields (source, verified_by) are for
+# provenance tracking only — they are ignored by the frontend pipeline.
+#
+# To re-enrich: cd solicitor && python solicitor.py --input-yaml ../data/auto_gigs.yaml
+
+
+- artist: "Mr Scruff"
+  date: 2010-02-20
+  venue: "KOKO"
+  city: "London"
+  type: "gig"
+  source: "gmail"
+  verified_by: "TicketWeb UK order confirmation code WK4RYJRK (purchased 2010-01-14); e-ticket delivery email same day. 1x General Admission £15.33+fee. No resale email found."
+
+- artist: "Rage Against the Machine"
+  date: 2010-06-06
+  venue: "Finsbury Park"
+  city: "London"
+  type: "gig"
+  source: "gmail"
+  verified_by: "SeeTickets ballot registration approved 2010-02-12; Festival Republic email 2010-03-12 confirmed ticket won ('Congratulations on getting your ticket to The Rage Factor!'); support acts confirmed email 2010-05-10. Free show via ballot. Personal email thread with friend confirms intent to attend. No cancellation/transfer email found."
+
+- artist: "Limp Bizkit"
+  date: 2024-08-19
+  venue: "Toyota Pavilion at Concord"
+  city: "Concord"
+  type: "gig"
+  source: "gmail"
+  verified_by: "Live Nation order #52-35473/NCA (purchased 2024-02-23); mobile entry instructions emailed 2024-08-18 (day before show). No resale/transfer email found."
+
+- artist: "Jason Bonham's Led Zeppelin Evening"
+  date: 2025-08-16
+  venue: "Blue Note Summer Sessions"
+  city: "Napa"
+  type: "gig"
+  source: "gmail"
+  verified_by: "Ticketmaster order #68-58530/NCA (purchased 2025-06-01); mobile entry instructions emailed 2025-08-15 (day before show). Venue: The Meritage Resort and Spa, 850 Bordeaux Way, Napa CA 94558. No resale/transfer email found."
+
+- artist: "Judas Priest"
+  date: 2025-10-14
+  venue: "Shoreline Amphitheatre"
+  city: "Mountain View"
+  type: "gig"
+  source: "gmail"
+  verified_by: "Ticketmaster order #79-39881/NCA (purchased 2025-09-05); Live Nation digital ticket stubs email + mobile entry instructions emailed 2025-10-13 (day before show). Co-headliner: Alice Cooper. No resale/transfer email found."
+
+- artist: "Alice Cooper"
+  date: 2025-10-14
+  venue: "Shoreline Amphitheatre"
+  city: "Mountain View"
+  type: "gig"
+  source: "gmail"
+  verified_by: "Ticketmaster order #79-39881/NCA (purchased 2025-09-05); Live Nation digital ticket stubs email + mobile entry instructions emailed 2025-10-13 (day before show). Co-headliner: Alice Cooper. No resale/transfer email found."
